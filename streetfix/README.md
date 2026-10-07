@@ -30,6 +30,8 @@ npm start
 
 The production preview uses the generated Cloudflare Worker through Wrangler. Its default address is http://127.0.0.1:8787. Stop the development preview first if switching to a different launch command. Port 5173 is the interview demo address when running `npm run dev`.
 
+For Cloudflare deployment steps, production Gemini secret setup, and hosting limitations, see [HOSTING.md](HOSTING.md).
+
 ## What is included
 
 - Large Leaflet map and synchronized photographic issue cards; category/status filters and newest, oldest, or support-count sorting.
