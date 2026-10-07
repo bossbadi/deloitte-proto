@@ -1,0 +1,3 @@
+# Optional server-side Live AI. Copy to .dev.vars and restart the preview.
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-4.1-mini
