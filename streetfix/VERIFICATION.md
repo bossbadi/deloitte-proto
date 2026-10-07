@@ -6,8 +6,10 @@ Verified 7 October 2026 on Windows, Node.js 24.13.1, Microsoft Edge through Play
 | --- | --- |
 | TypeScript (`tsc --noEmit`) | Pass |
 | Production build (`node scripts/run-framework.mjs build`) | Pass |
-| Focused model/persistence suite | 11 tests passed |
+| Focused model/persistence and Gemini suite | 37 tests passed (including subtests) |
 | Browser acceptance suite | 13 tests passed |
+| Gemini browser checks | 3 targeted tests passed: consent/success, missing-key/provider-failure fallback, loading locks |
+| Live Gemini browser draft | Pass with a bundled sample photo and a user-confirmed Free Tier key; editable fields populated |
 | Browser page errors during screenshot inspection | None |
 | Desktop viewport | 1440 × 1000, visually inspected |
 | Mobile viewport | 390 × 844, visually inspected; no horizontal overflow |
@@ -31,7 +33,9 @@ Verified 7 October 2026 on Windows, Node.js 24.13.1, Microsoft Edge through Play
 
 ## Limits
 
-No live external AI credentials were available, so actual provider image interpretation, output quality, latency, and billing were not exercised. Missing-key and simulated provider-failure behavior was exercised; API output is validated on the server and client. This is not a claim of model accuracy.
+The Gemini migration also passed targeted ESLint checks, TypeScript, and a fresh production build. Server tests use mocked Gemini responses, including image request encoding, model overrides, blocked/incomplete output, schema failures, quota errors, overload, timeouts, and network interruptions. The repeatable browser suite simulates provider responses; a separate live browser check verified that a Google-generated draft populates editable report fields.
+
+A configured Gemini key was checked against the live models endpoint, which returned HTTP 200. An earlier live draft request returned HTTP 402 with Google's depleted-prepayment-credits error. After the user confirmed a Free Tier project key, the previous default, `gemini-3.8-flash`, returned HTTP 503 for high demand. The new default, `gemini-3.1-flash-lite`, returned HTTP 200 and valid drafts twice for the bundled pothole photo (approximately 3.7 and 1.5 seconds). A real browser request using the bundled sample photo also returned HTTP 200 and populated editable fields (approximately 16 seconds). The app distinguishes billing, overload, timeouts, incomplete output, and invalid fields without exposing provider response bodies. API output is validated on the server and client. These fixture checks do not establish accuracy across arbitrary photos or guarantee response times.
 
 Browser verification used desktop Edge with a mobile viewport, not a physical phone or a Safari/Firefox compatibility matrix. Device geolocation is implemented with denial/unavailable fallback but was not exercised against a real device GPS. Storage-quota exhaustion was not separately injected; unavailable storage and durable normal/reset paths were tested. No supported WebMCP runtime was available for executing its optional tools; unsupported-browser feature detection was exercised.
 

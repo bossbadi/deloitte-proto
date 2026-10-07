@@ -45,7 +45,7 @@ The production preview uses the generated Cloudflare Worker through Wrangler. It
 
 **Sample AI draft is the default and needs no credentials.** Selecting the labeled sample photo enables a curated example for that known image. The interface identifies it as a sample, not a live model analysis. For arbitrary device uploads, the local helper uses only the resident's supplied text, chosen category, and title. It explicitly says **photo not analyzed**. Fields remain editable and no external request occurs. Residents can submit entirely manually without selecting the helper.
 
-**Live AI is optional.** Copy `.dev.vars.example` to `.dev.vars`, enter an OpenAI API key, and restart the preview:
+**Live AI is optional.** Copy `.dev.vars.example` to `.dev.vars`, set `GEMINI_API_KEY` to your Google Gemini API key, and restart the preview:
 
 ```powershell
 Copy-Item .dev.vars.example .dev.vars
@@ -53,9 +53,9 @@ Copy-Item .dev.vars.example .dev.vars
 npm run dev
 ```
 
-The optional default model is `gpt-4.1-mini`; `OPENAI_MODEL` can specify another image-capable model supporting structured output that your account can access. In the form choose **Live AI · OpenAI**, select the consent checkbox, and deliberately select **Help describe this issue**. Only then is the photo and resident text sent to the server/provider. Device coordinates are not sent to the model. The server uses the [Responses image input](https://developers.openai.com/api/docs/guides/images-vision) and [structured output](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses) APIs, with `store: false`, a restricted routing guide, a strict JSON schema, and Zod validation of returned data. The provider's data policies still apply; `store: false` is not a claim of zero retention.
+The default model is `gemini-3.1-flash-lite`; no model setting is required. Optionally, `GEMINI_MODEL` can specify another image-capable Gemini model supporting structured output that your account can access. In the form choose **Live AI · Google Gemini**, select the consent checkbox, and deliberately select **Help describe this issue**. Only then is the photo and resident text sent to Google. Device coordinates are not sent to the model. The server uses the [Gemini generateContent API](https://ai.google.dev/api/generate-content) with inline image data, a restricted routing guide, a JSON response schema, and Zod validation of returned data. Google's data policies apply; this prototype makes no claim of zero retention. Get a key from [Google AI Studio](https://aistudio.google.com/apikey).
 
-The server never returns the key to the client and does not log requests, photos, keys, or provider error bodies. Missing credentials, refusal/incomplete output, invalid structured data, provider errors, and timeouts yield a clear retry/manual fallback. No external credentials were available for verification, so live provider output has **not** been tested. The absent-key and simulated failure paths were browser-tested. AI suggests documentation and routing; staff decide urgency and work assignment. No image generation is used.
+The server never returns the key to the client and does not log requests, photos, keys, or provider error bodies. Missing credentials, blocked/incomplete output, invalid structured data, provider errors, and timeouts yield specific retry/manual fallbacks. HTTP 402 identifies unavailable billing credits, HTTP 429 identifies quota limits, and HTTP 503/504 identifies temporary provider overload. Server timeouts and unusable draft fields have separate messages. Successful live drafts were verified with bundled demo photos and a user-confirmed Free Tier key, including a real browser request that populated editable report fields. Failure paths are tested with mocked responses. AI suggests documentation and routing; staff decide urgency and work assignment. No image generation is used.
 
 ## Data, map, and demo-auth limitations
 
@@ -83,8 +83,9 @@ TypeScript, React 19, Vinext/Vite, the supplied accessible UI primitives, Leafle
 - `lib/storage.ts`: transactional persistence and safe photo ingestion.
 - `components/streetfix-app.tsx`: connected roles, reports, forms, detail sheet, and public updates.
 - `components/street-map.tsx`: real map, marker synchronization, and coordinate fallback.
-- `app/api/draft/route.ts`: optional server-only multimodal integration.
+- `app/api/draft/route.ts` and `lib/gemini-draft.ts`: optional server-only Gemini multimodal integration.
 - `tests/model.test.ts`: focused transition/support/duplicate/draft/persistence tests.
+- `tests/gemini-draft.test.ts`: mocked Gemini requests, validated responses, consent, and failure handling.
 - `tests/browser/streetfix.spec.ts`: real browser acceptance checks.
 
 The browser suite targets the installed Microsoft Edge (`channel: 'msedge'`) and an already-running development preview:
