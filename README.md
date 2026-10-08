@@ -8,8 +8,9 @@ A runnable, local interview prototype for a Deloitte AI Innovation Analyst / Sum
 
 Requires Node.js 22.13 or newer and npm. Tested with Node.js 24.13.1 on Windows.
 
+Run the commands below from the repository root (`deloitte-proto`), which contains `package.json`.
+
 ```powershell
-cd streetfix
 npm ci
 npm run dev
 ```

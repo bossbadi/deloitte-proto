@@ -12,7 +12,7 @@ Sample AI drafts and manual reporting work without a Gemini key. The default liv
 
 ## Build and deploy
 
-Open PowerShell in your checkout.
+Open PowerShell at the repository root (`deloitte-proto`), which contains `package.json`. Run all commands in this guide from that directory.
 
 ```powershell
 npm ci
