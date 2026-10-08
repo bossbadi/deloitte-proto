@@ -33,6 +33,8 @@ The production preview uses the generated Cloudflare Worker through Wrangler. It
 
 For Cloudflare deployment steps, production Gemini secret setup, and hosting limitations, see [HOSTING.md](HOSTING.md).
 
+For an interviewer-friendly architecture flowchart, technology stack, and walkthrough, see [architecture/README.md](architecture/README.md).
+
 ## What is included
 
 - Large Leaflet map and synchronized photographic issue cards; category/status filters and newest, oldest, or support-count sorting.

@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1520" viewBox="0 0 1500 1520" role="img" aria-labelledby="title description">
+  <title id="title">StreetFix application architecture</title>
+  <desc id="description">Residents and staff share a React interface. Browser-side rules and Zod validation store reports, photos, supports and repair histories in IndexedDB. Leaflet requests OpenStreetMap tiles. Optional live AI sends a photo and resident text to a server endpoint and Google Gemini after consent. Vinext and Vite build the website and Cloudflare Worker. Reports are local to one browser; the demo role selector is not authentication.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#4b655a"/></marker>
+    <marker id="ai-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#596da0"/></marker>
+    <symbol id="logo-react" viewBox="0 0 24 24" fill="#61DAFB"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></symbol>
+    <symbol id="logo-typescript" viewBox="0 0 24 24" fill="#3178C6"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></symbol>
+    <symbol id="logo-tailwindcss" viewBox="0 0 24 24" fill="#06B6D4"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/></symbol>
+    <symbol id="logo-radixui" viewBox="0 0 24 24" fill="#161618"><path d="M11.52 24a7.68 7.68 0 0 1-7.68-7.68 7.68 7.68 0 0 1 7.68-7.68V24Zm0-24v7.68H3.84V0h7.68Zm4.8 7.68a3.84 3.84 0 1 1 0-7.68 3.84 3.84 0 0 1 0 7.68Z"/></symbol>
+    <symbol id="logo-leaflet" viewBox="0 0 24 24" fill="#199900"><path d="M17.69 0c-.355.574-8.432 4.74-10.856 8.649-2.424 3.91-3.116 6.988-2.237 9.882.879 2.893 2.559 2.763 3.516 3.717.958.954 2.257 2.113 4.332 1.645 2.717-.613 5.335-2.426 6.638-7.508 1.302-5.082.448-9.533-.103-11.99A35.395 35.395 0 0 0 17.69 0zm-.138.858l-9.22 21.585-.574-.577Z"/></symbol>
+    <symbol id="logo-zod" viewBox="0 0 24 24" fill="#3E67B1"><path d="M2.584 3.582a2.247 2.247 0 0 1 2.112-1.479h14.617c.948 0 1.794.595 2.115 1.487l2.44 6.777a2.248 2.248 0 0 1-.624 2.443l-9.61 8.52a2.247 2.247 0 0 1-2.963.018L.776 12.773a2.248 2.248 0 0 1-.64-2.467Zm12.038 4.887-9.11 5.537 5.74 5.007c.456.399 1.139.396 1.593-.006l5.643-5.001H14.4l6.239-3.957c.488-.328.69-.947.491-1.5l-1.24-3.446a1.535 1.535 0 0 0-1.456-1.015H5.545a1.535 1.535 0 0 0-1.431 1.01l-1.228 3.37z"/></symbol>
+    <symbol id="logo-vite" viewBox="0 0 24 24" fill="#646CFF"><path d="M13.056 23.238a.57.57 0 0 1-1.02-.355v-5.202c0-.63-.512-1.143-1.144-1.143H5.148a.57.57 0 0 1-.464-.903l3.777-5.29c.54-.753 0-1.804-.93-1.804H.57a.574.574 0 0 1-.543-.746.6.6 0 0 1 .08-.157L5.008.78a.57.57 0 0 1 .467-.24h14.589a.57.57 0 0 1 .466.903l-3.778 5.29c-.54.755 0 1.806.93 1.806h5.745c.238 0 .424.138.513.322a.56.56 0 0 1-.063.603z"/></symbol>
+    <symbol id="logo-cloudflare" viewBox="0 0 24 24" fill="#F38020"><path d="M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727"/></symbol>
+    <symbol id="logo-googlegemini" viewBox="0 0 24 24" fill="#8E75B2"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></symbol>
+    <symbol id="logo-nodedotjs" viewBox="0 0 24 24" fill="#5FA04E"><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/></symbol>
+    <symbol id="logo-eslint" viewBox="0 0 24 24" fill="#4B32C3"><path d="M7.257 9.132L11.816 6.5a.369.369 0 0 1 .368 0l4.559 2.632a.369.369 0 0 1 .184.32v5.263a.37.37 0 0 1-.184.319l-4.559 2.632a.369.369 0 0 1-.368 0l-4.559-2.632a.369.369 0 0 1-.184-.32V9.452a.37.37 0 0 1 .184-.32M23.852 11.53l-5.446-9.475c-.198-.343-.564-.596-.96-.596H6.555c-.396 0-.762.253-.96.596L.149 11.509a1.127 1.127 0 0 0 0 1.117l5.447 9.398c.197.342.563.517.959.517h10.893c.395 0 .76-.17.959-.512l5.446-9.413a1.069 1.069 0 0 0 0-1.086m-4.51 4.556a.4.4 0 0 1-.204.338L12.2 20.426a.395.395 0 0 1-.392 0l-6.943-4.002a.4.4 0 0 1-.205-.338V8.08c0-.14.083-.269.204-.338L11.8 3.74c.12-.07.272-.07.392 0l6.943 4.003a.4.4 0 0 1 .206.338z"/></symbol>
+    <symbol id="logo-openstreetmap" viewBox="0 0 24 24" fill="#7EBC6F"><path d="M2.672 23.969c-.352-.089-.534-.234-1.471-1.168C.085 21.688.014 21.579.018 20.999c0-.645-.196-.414 3.368-3.986 3.6-3.608 3.415-3.451 4.064-3.449.302 0 .378.016.62.14l.277.14 1.744-1.744-.218-.343c-.425-.662-.825-1.629-1.006-2.429a7.657 7.657 0 0 1 1.479-6.44c2.49-3.12 6.959-3.812 10.26-1.588 1.812 1.218 2.99 3.099 3.328 5.314.07.467.07 1.579 0 2.074a7.554 7.554 0 0 1-2.205 4.402 6.712 6.712 0 0 1-1.943 1.401c-.959.483-1.775.71-2.881.803-1.573.131-3.32-.305-4.656-1.163l-.343-.218-1.744 1.744.14.28c.125.241.14.316.14.617.003.651.156.467-3.426 4.049-2.761 2.756-3.186 3.164-3.398 3.261-.271.125-.69.171-.945.106zM17.485 13.95a6.425 6.425 0 0 0 4.603-3.51c1.391-2.899.455-6.306-2.227-8.108-.638-.43-1.529-.794-2.367-.962-.581-.117-1.809-.104-2.414.025a6.593 6.593 0 0 0-2.452 1.064c-.444.315-1.177 1.048-1.487 1.487a6.384 6.384 0 0 0 .38 7.907 6.406 6.406 0 0 0 3.901 2.136c.509.078 1.542.058 2.065-.037zm-3.738 7.376a80.97 80.97 0 0 1-2.196-.651c-.025-.028 1.207-4.396 1.257-4.449.023-.026 4.242 1.152 4.414 1.236.062.026-.003.288-.525 2.102a398.513 398.513 0 0 0-.635 2.236c-.025.087-.069.156-.097.156-.028-.003-1.028-.287-2.219-.631zm2.912.524c0-.053 1.227-4.333 1.246-4.347.047-.034 4.324-1.23 4.341-1.211.019.019-1.199 4.337-1.23 4.36-.02.019-4.126 1.191-4.259 1.218-.054.011-.098 0-.098-.019zm-7.105-1.911c.846-.852 1.599-1.627 1.674-1.728.171-.218.405-.732.472-1.015.026-.118.053-.352.058-.522l.011-.307.182-.051c.103-.028.193-.044.202-.034.023.025-1.207 4.321-1.246 4.36-.02.016-.677.213-1.464.436l-1.425.405 1.537-1.542zm8.289-3.06a1.371 1.371 0 0 1-.059-.187l-.044-.156.156-.028c1.339-.227 2.776-.856 3.908-1.713.16-.125.252-.171.265-.134.054.165.272.95.265.959-.034.034-4.48 1.282-4.492 1.261zm-15.083-1.3c-.05-.039-1.179-3.866-1.264-4.29-.016-.084.146-.044 2.174.536 2.121.604 2.192.629 2.222.74.028.098.011.129-.125.223-.084.059-.769.724-1.523 1.479a63.877 63.877 0 0 1-1.39 1.367c-.016 0-.056-.025-.093-.054zm.821-4.378c-1.188-.343-2.164-.623-2.167-.626-.016-.012 1.261-4.433 1.285-4.46.022-.022 4.422 1.211 4.469 1.252.009.009-.269 1.017-.618 2.239-.576 2.02-.643 2.224-.723 2.22-.05-.003-1.059-.285-2.247-.626zm2.959.538c.012-.031.212-.723.444-1.534l.42-1.476.056.321c.093.556.265 1.188.464 1.741.106.296.187.539.181.545-.008.006-.332.101-.719.212-.389.109-.741.21-.786.224-.058.016-.075.006-.059-.034zM4.905 6.112c-1.187-.339-2.167-.635-2.18-.654-.04-.062-1.246-4.321-1.23-4.338.026-.025 4.31 1.204 4.351 1.246.047.051 1.28 4.379 1.246 4.376L4.91 6.113zm2.148-1.713l-.519-1.806-.078-.28 1.693-.483c.934-.265 1.724-.495 1.76-.508.034-.016-.083.14-.26.336A8.729 8.729 0 0 0 7.69 5.23a4.348 4.348 0 0 0-.132.561c0 .293-.115-.025-.505-1.39z"/></symbol>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; fill: #243b32; }
+      .title { font-size: 36px; font-weight: 700; letter-spacing: -1px; }
+      .subtitle { font-size: 19px; fill: #5b7066; }
+      .lane { font-size: 15px; font-weight: 700; letter-spacing: 1.8px; }
+      .heading { font-size: 21px; font-weight: 650; }
+      .compact { font-size: 17px; }
+      .body { font-size: 17px; fill: #4f635a; }
+      .small { font-size: 15px; fill: #5b7066; }
+      .label { font-size: 14px; fill: #4f635a; }
+      .box { fill: white; stroke: #c6d7ce; stroke-width: 1.5; rx: 12; }
+      .ai { fill: #f7f9ff; stroke: #c4cfe8; stroke-width: 1.5; rx: 12; }
+      .line { fill: none; stroke: #4b655a; stroke-width: 2; marker-end: url(#arrow); }
+      .both { marker-start: url(#arrow); }
+      .optional { fill: none; stroke: #596da0; stroke-width: 2; stroke-dasharray: 7 5; marker-end: url(#ai-arrow); }
+    </style>
+  </defs>
+  <rect width="1500" height="1520" fill="#f8faf9"/>
+  <text x="60" y="64" class="title">StreetFix / from resident report to public repair history</text>
+  <text x="60" y="100" class="subtitle">Implemented prototype architecture · browser data + optional server-side AI</text>
+
+  <rect x="90" y="140" width="390" height="85" class="box"/>
+  <text x="110" y="174" class="heading">Residents · Maya / Leo</text>
+  <text x="110" y="203" class="body">Report, browse, support, follow repairs</text>
+  <rect x="530" y="140" width="390" height="85" class="box"/>
+  <text x="550" y="174" class="heading">City staff · demo role</text>
+  <text x="550" y="203" class="body">Review, prioritize, assign, update status</text>
+  <path d="M285 225V310" class="line"/>
+  <path d="M725 225V310" class="line"/>
+  <text x="1020" y="168" class="small">Solid arrows: app and data flow</text>
+  <text x="1020" y="197" class="small">Dashed arrows: optional / external</text>
+  <text x="1020" y="226" class="small">Both roles share one local snapshot.</text>
+
+  <rect x="60" y="260" width="900" height="620" rx="18" fill="#eef5f0" stroke="#c6d7ce"/>
+  <text x="90" y="290" class="lane">BROWSER · REPORTS AND WORKFLOW</text>
+  <rect x="90" y="310" width="830" height="90" class="box"/>
+  <use href="#logo-react" x="110" y="320" width="26" height="26"/>
+  <text x="146" y="342" class="heading">One shared interface · React 19 + TypeScript</text>
+  <use href="#logo-tailwindcss" x="110" y="352" width="22" height="22"/>
+  <text x="142" y="370" class="body">Tailwind CSS 4 + Radix UI primitives · Lucide icons · Sonner notifications</text>
+  <text x="110" y="390" class="small">Map / list, upload form, report detail sheet, staff queue and public updates</text>
+
+  <path d="M215 400V450" class="line both"/>
+  <path d="M500 400V450" class="line both"/>
+  <path d="M790 400V450" class="line"/>
+  <path d="M110 400H80V705H90" class="line"/>
+  <rect x="90" y="450" width="250" height="115" class="box"/>
+  <use href="#logo-leaflet" x="110" y="460" width="26" height="26"/>
+  <text x="146" y="482" class="heading compact">Map + report cards</text>
+  <text x="110" y="510" class="body">Leaflet / selected markers</text>
+  <text x="110" y="536" class="small">Pin selection and manual</text>
+  <text x="110" y="555" class="small">coordinate / tile fallback</text>
+  <rect x="370" y="450" width="260" height="115" class="box"/>
+  <use href="#logo-typescript" x="390" y="460" width="26" height="26"/>
+  <text x="426" y="482" class="heading compact">Report + repair rules</text>
+  <use href="#logo-zod" x="390" y="491" width="22" height="22"/>
+  <text x="422" y="510" class="body">TypeScript + Zod</text>
+  <text x="390" y="536" class="small">Supports, duplicates, queues,</text>
+  <text x="390" y="555" class="small">priority and sequential stages</text>
+  <rect x="660" y="450" width="260" height="115" class="ai"/>
+  <text x="680" y="482" class="heading compact">Editable report draft</text>
+  <text x="680" y="510" class="body">Manual / Sample / Live AI</text>
+  <text x="680" y="536" class="small">Resident reviews fields</text>
+  <text x="680" y="555" class="small">before explicitly submitting</text>
+  <path d="M660 520H630" class="line"/>
+  <text x="646" y="590" text-anchor="middle" class="label">Reviewed submission → rules → local save</text>
+
+  <rect x="90" y="650" width="250" height="115" class="box"/>
+  <text x="110" y="682" class="heading compact">Photo + location intake</text>
+  <text x="110" y="710" class="body">FileReader + Canvas</text>
+  <text x="110" y="736" class="small">Validate / resize photo to JPEG</text>
+  <text x="110" y="755" class="small">Optional GPS; confirm location</text>
+  <path d="M340 720H350V425H790V450" class="line"/>
+
+  <rect x="370" y="650" width="260" height="115" class="box"/>
+  <text x="390" y="682" class="heading compact">IndexedDB · local storage</text>
+  <text x="390" y="710" class="body">One validated snapshot</text>
+  <text x="390" y="736" class="small">Reports, normalized photos,</text>
+  <text x="390" y="755" class="small">support relationships, timeline</text>
+  <path d="M500 565V650" class="line both"/>
+  <text x="510" y="627" class="label">Read / write</text>
+
+  <rect x="660" y="650" width="260" height="115" class="ai"/>
+  <text x="680" y="682" class="heading compact">Local sample helper</text>
+  <text x="680" y="710" class="body">No provider request</text>
+  <text x="680" y="736" class="small">Known sample: curated draft</text>
+  <text x="680" y="755" class="small">Other uploads: text only</text>
+  <path d="M790 565V650" class="line both"/>
+  <text x="800" y="627" class="label">Sample mode</text>
+
+  <text x="90" y="806" class="body">Staff updates: Reported → Planned → In progress → Fixed</text>
+  <text x="90" y="834" class="small">Demo roles are not authentication. Data stays in this browser; storage failure falls back to session state.</text>
+  <text x="90" y="860" class="small">Optional WebMCP tools read local reports or open their visible detail sheet in compatible browsers.</text>
+
+  <rect x="990" y="260" width="450" height="620" rx="18" fill="#eef1f8" stroke="#c4cfe8"/>
+  <text x="1020" y="290" class="lane">SERVER · APP DELIVERY AND OPTIONAL AI</text>
+  <rect x="1020" y="310" width="390" height="90" class="ai"/>
+  <use href="#logo-vite" x="1040" y="320" width="26" height="26"/>
+  <text x="1076" y="342" class="heading">Vinext + Vite 8</text>
+  <text x="1040" y="370" class="body">Next.js-compatible App Router</text>
+  <use href="#logo-cloudflare" x="1040" y="372" width="22" height="22"/>
+  <text x="1072" y="390" class="small">Cloudflare Worker + website assets</text>
+  <path d="M1020 350H920" class="line"/>
+  <text x="970" y="335" text-anchor="middle" class="label">Serve app</text>
+
+  <rect x="1020" y="450" width="390" height="115" class="ai"/>
+  <use href="#logo-typescript" x="1040" y="460" width="26" height="26"/>
+  <text x="1076" y="482" class="heading">POST /api/draft</text>
+  <text x="1040" y="510" class="body">Consent + Zod request validation</text>
+  <text x="1040" y="536" class="small">Photo + resident text; no device coordinates</text>
+  <text x="1040" y="555" class="small">GEMINI_API_KEY stays on the server</text>
+  <path d="M920 490H1020" class="optional"/>
+  <text x="970" y="440" text-anchor="middle" class="label">Live + consent</text>
+
+  <rect x="1020" y="650" width="390" height="115" class="ai"/>
+  <use href="#logo-zod" x="1040" y="660" width="26" height="26"/>
+  <text x="1076" y="682" class="heading">Validate the model response</text>
+  <text x="1040" y="710" class="body">Structured JSON + Zod</text>
+  <text x="1040" y="736" class="small">Return editable fields or a clear error</text>
+  <text x="1040" y="755" class="small">Timeout / provider failure → retry or manual</text>
+  <path d="M1020 705H975V610H945V540H920" class="optional"/>
+  <text x="1140" y="612" text-anchor="middle" class="label">Response is checked before reaching the form</text>
+  <text x="1020" y="806" class="body">AI suggests documentation and routing.</text>
+  <text x="1020" y="834" class="small">Humans submit reports and decide urgency.</text>
+  <text x="1020" y="860" class="small">This endpoint does not store city reports.</text>
+
+  <text x="90" y="929" class="lane">EXTERNAL SERVICES</text>
+  <rect x="90" y="950" width="400" height="110" class="box"/>
+  <use href="#logo-openstreetmap" x="110" y="960" width="26" height="26"/>
+  <text x="146" y="982" class="heading">OpenStreetMap tile service</text>
+  <text x="110" y="1012" class="body">Real base map · fictional report fixtures</text>
+  <text x="110" y="1040" class="small">Map imagery is fetched separately from report data.</text>
+  <path d="M90 510H45V1000H90" class="optional"/>
+  <text x="510" y="988" class="body">Bundled assets</text>
+  <text x="510" y="1018" class="small">Licensed demo photos + attribution</text>
+  <text x="510" y="1042" class="small">Fictional seed reports and repair histories</text>
+
+  <rect x="1020" y="950" width="390" height="110" class="ai"/>
+  <use href="#logo-googlegemini" x="1040" y="960" width="26" height="26"/>
+  <text x="1076" y="982" class="heading">Google Gemini API · optional</text>
+  <text x="1040" y="1012" class="body">Default: gemini-3.1-flash-lite</text>
+  <text x="1040" y="1040" class="small">Photo + text → documentation draft</text>
+  <path d="M1410 510H1460V1005H1410" class="optional"/>
+  <path d="M1215 950V880H1425V790H1215V765" class="optional"/>
+  <text x="1130" y="910" class="label">Structured response</text>
+
+  <rect x="60" y="1110" width="1380" height="180" rx="16" fill="#fff" stroke="#c6d7ce"/>
+  <text x="90" y="1144" class="lane">BUILD, CHECKS AND EXTENSION POINTS</text>
+  <text x="90" y="1177" class="body">Node.js + npm → Vinext / Vite build → client assets + Worker · Wrangler preview / deployment</text>
+  <text x="90" y="1206" class="body">Checks: TypeScript + ESLint · node:test / tsx + fake-indexeddb · Playwright + Microsoft Edge</text>
+  <text x="90" y="1236" class="small">Starter scaffolding: Drizzle / D1, R2, ChatGPT auth helpers and connector bridge; unused by the report workflow.</text>
+  <text x="90" y="1263" class="small">Shared city pilot: add authenticated APIs, shared database / photo storage, staff permissions and AI request limits.</text>
+<rect x="60" y="1320" width="1380" height="130" rx="16" fill="#fff" stroke="#c6d7ce"/>
+  <text x="90" y="1350" class="lane">TECHNOLOGY STACK</text>
+  <use href="#logo-react" x="118" y="1370" width="32" height="32"/>
+  <text x="134" y="1426" text-anchor="middle" class="small" style="font-size:12px">React 19</text>
+  <use href="#logo-typescript" x="231" y="1370" width="32" height="32"/>
+  <text x="247" y="1426" text-anchor="middle" class="small" style="font-size:12px">TypeScript</text>
+  <use href="#logo-tailwindcss" x="344" y="1370" width="32" height="32"/>
+  <text x="360" y="1426" text-anchor="middle" class="small" style="font-size:12px">Tailwind CSS</text>
+  <use href="#logo-radixui" x="457" y="1370" width="32" height="32"/>
+  <text x="473" y="1426" text-anchor="middle" class="small" style="font-size:12px">Radix UI</text>
+  <use href="#logo-leaflet" x="570" y="1370" width="32" height="32"/>
+  <text x="586" y="1426" text-anchor="middle" class="small" style="font-size:12px">Leaflet</text>
+  <use href="#logo-zod" x="683" y="1370" width="32" height="32"/>
+  <text x="699" y="1426" text-anchor="middle" class="small" style="font-size:12px">Zod</text>
+  <use href="#logo-vite" x="796" y="1370" width="32" height="32"/>
+  <text x="812" y="1426" text-anchor="middle" class="small" style="font-size:12px">Vite</text>
+  <use href="#logo-cloudflare" x="909" y="1370" width="32" height="32"/>
+  <text x="925" y="1426" text-anchor="middle" class="small" style="font-size:12px">Cloudflare</text>
+  <use href="#logo-googlegemini" x="1022" y="1370" width="32" height="32"/>
+  <text x="1038" y="1426" text-anchor="middle" class="small" style="font-size:12px">Gemini</text>
+  <use href="#logo-nodedotjs" x="1135" y="1370" width="32" height="32"/>
+  <text x="1151" y="1426" text-anchor="middle" class="small" style="font-size:12px">Node.js</text>
+  <use href="#logo-eslint" x="1248" y="1370" width="32" height="32"/>
+  <text x="1264" y="1426" text-anchor="middle" class="small" style="font-size:12px">ESLint</text>
+  <use href="#logo-openstreetmap" x="1361" y="1370" width="32" height="32"/>
+  <text x="1377" y="1426" text-anchor="middle" class="small" style="font-size:12px">OpenStreetMap</text>
+  <text x="60" y="1494" class="small">Presentation guide and editable Mermaid diagrams: architecture/README.md · Source of truth: implemented repository code</text>
+</svg>
